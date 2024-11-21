@@ -1,1 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DraftKings Sportsbook</title>
+        <style>
+            body, html {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial, sans-serif;
+            }
 
+            .header {
+                display: flex;
+                justify-content: space-between;
+                padding-left: 30px;
+                padding-right: 40px;
+                padding-top: 15px;
+                padding-bottom: 10px;
+            }
+            .header-div {
+                display: flex;
+                align-items: center;
+            }
+            .header-text {
+                margin-left: 15px;
+                font-size: 10px;
+            }
+            .nav-icon {
+                width: 25px;
+                height: 15px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                cursor: pointer;
+                margin-left: 20px;
+            }
+            .nav-icon span {
+                display: block;
+                height: 2px;
+                background-color: #333;
+                border-radius: 2px;
+                width: 100%;
+                transition: background-color 0.3s ease;
+            }
+            .nav-icon:hover span {
+                background-color: #555;
+            }
+
+            .intro-div {
+                background-image: url('https://www.draftkings.com/v2/landingpages-assets/blt02fb52e5e7a6fbb9/blt5001d31f8980111b/627bbaef52bd3634ca6ff9dc/DESKTOP_Desktop_Masthead.png');
+                width: 100%;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .hey-ontario-text {
+                color: white;
+                font-weight: 900;
+                font-size: 30px;
+                margin-top: 50px;
+            }
+            .draftkings-sportsbook-text {
+                color: green;
+                font-weight: 900;
+                font-size: 30px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            .signup-button {
+                background-color: orange;
+                border: none;
+                padding: 18px;
+                padding-right: 28px;
+                padding-left: 28px;
+                margin-bottom: 80px;
+            }
+
+            .getting-started {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                margin-top: 50px;
+            }
+            .getting-started-numbered-circle {
+                background-color: black;
+                border-radius: 100%;
+                color: white;
+                width: 25px;
+                height: 25px;
+                margin-right: 10px;
+
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .getting-started-numbered-div {
+                display: flex;
+                margin-bottom: 25px;
+            }
+
+            .about-betting {
+                background-image: url("https://www.draftkings.com/v2/landingpages-assets/blt02fb52e5e7a6fbb9/bltc91c6cb5712053b1/5f7775c702e6b80ebf900416/DESKTOP_Desktop_XOs_BG.png");
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+                
+                padding-top: 30px;
+                padding-bottom: 40px;
+                border: none;
+            }
+            .about-betting-header-text {
+                color: white;
+                font-size: 30px;
+                font-weight: 900;
+            }
+            .about-betting-header-text-green {
+                color: green;
+                font-size: 30px;
+                font-weight: 900;
+            }
+            .about-betting-text {
+                color: white;
+                padding-top: 10px;
+                font-size: 15px;
+                text-align: justify;
+                max-width: 600px;
+                margin: 0 auto;
+                line-height: 1.6;
+            }
+
+            .what-is-draftkings {
+                background-image: url("https://www.draftkings.com/v2/landingpages-assets/blt02fb52e5e7a6fbb9/blt5ad5559a0f776fe4/5f7775c7f98ad40e91dc56bc/DESKTOP_Desktop_Green_BG.png");
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .what-is-draftkings-header {
+                margin-top: 40px;
+                font-size: 30px;
+                font-weight: 900;
+            }
+            .what-is-draftkings-content-box {
+                text-align: center;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                width: 60%;
+
+                margin-top: 40px;
+                margin-bottom: 60px;
+            }
+
+            .launch-section {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .launch-section-header {
+                font-size: 23px;
+                font-weight: 900;
+                margin-top: 60px;
+                margin-bottom: 40px;
+            }
+            .launch-section-options {
+                width: 300px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                background-color: white;
+                overflow: hidden;
+                text-align: center;
+                margin-bottom: 50px;
+            }
+            .launch-section-card-header {
+                background-color: #a8d144;
+                padding: 20px;
+            }
+            .launch-section-card-header img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+            }
+            .launch-section-card-title {
+                font-size: 1.5rem;
+                font-weight: bold;
+                margin: 15px 0;
+            }
+            .launch-section-card-body {
+                padding: 20px;
+                text-align: left;
+            }
+            .launch-section-card-body ul {
+                list-style-type: disc;
+                margin: 0;
+                padding: 0 20px;
+            }
+            .launch-section-card-body li {
+                margin-bottom: 10px;
+                font-size: 1rem;
+            }
+            .launch-section-card-footer {
+                background-color: #a8d144;
+                color: white;
+                padding: 15px;
+                font-size: 1rem;
+                font-weight: bold;
+                text-transform: uppercase;
+                cursor: pointer;
+            }
+            .launch-section-card-footer:hover {
+                background-color: #8cbc36;
+            }
+
+            .get-app-section {
+                background-color: rgb(235, 235, 235);
+
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: center;
+
+                padding-top: 50px;
+                padding-bottom: 40px;
+            }
+
+            .bottom-footer {
+                background-color: #19181a;
+                padding: 10px;
+                color: gray;
+                font-size: 10px;
+
+                display: flex;
+                justify-content: space-between;
+            }
+            .bottom-footer-section {
+                display: flex;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="scroller">
+            <div class="header">
+                <img src="./images/logo.png" width="65" height="40"/>
+                
+                <div class="header-div">
+                    <text class="header-text">FAQ</text>
+                    <text class="header-text">SIGN IN</text>
+        
+                    <div class="nav-icon" onclick="alert('Navigation pressed!')">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="intro-div">
+                <div class="hey-ontario-text">HEY ONTARIO,</div>
+                <div class="draftkings-sportsbook-text">DRAFTKINGS SPORTSBOOK IS HERE!</div>
+                <button class="signup-button"  onclick="alert('Sign Up Now pressed!')">SIGN UP NOW</button>
+            </div>
+        
+            <div class="getting-started">
+                <div class="text-section">
+                    <h1>It's easy to get started.</h1>
+                    <div class="steps">
+                        <div class="getting-started-numbered-div">
+                            <div class="getting-started-numbered-circle">
+                                1
+                            </div>
+                            Create an account online or download our app.
+                        </div>
+                        <div class="getting-started-numbered-div">
+                            <div class="getting-started-numbered-circle">
+                                2
+                            </div>
+                            Find the sport and outcome you want to bet on.
+                        </div>
+                        <div class="getting-started-numbered-div">
+                            <div class="getting-started-numbered-circle">
+                                3
+                            </div>
+                            Place a bet pregame or live as the action unfolds.
+                        </div>
+                    </div>
+                    <div>
+                        <img src="./images/app-store-download.png" alt="Download on the App Store" width="100">
+                        <img src="./images/google-play-download.png" alt="Get it on Google Play" width="100">
+                    </div>
+                </div>
+                <div class="phone-image">
+                    <img src="./images/phone.png" alt="Phone with App" width="300">
+                </div>
+            </div>
+        
+            <div class="about-betting">
+                <div style="display: flex; gap: 10px;">
+                    <div class="about-betting-header-text">About</div>
+                    <div class="about-betting-header-text-green">Ontario</div>
+                    <div class="about-betting-header-text">Sports Betting</div>
+                </div>
+                <div class="about-betting-text">
+                    Ontario's regulated sports betting market went live in April 2022, with DraftKings<br/>
+                    Sportsbook entering the market on May 18, 2022. Anyone who is at least 19 years of<br/>
+                    age, has a valid Canadian Social Insurance Number, has had their identity verified,<br/>
+                    and is physically within the province of Ontario can bet with DraftKings Sportsbook.<br/>
+                    Sports betting in Ontario is regulated by the Alcohol and Gaming Commission of<br/>
+                    Ontario and offered in partnership with iGaming Ontario. DraftKings Sportsbook<br/>
+                    offers dozens of American, Canadian, and international sports for users to bet on.<br/>
+                    There are also many different bet types that are unique to DraftKings such as live, in-<br/>
+                    game betting, and Teasers+.
+                </div>
+            </div>
+        
+            <div class="what-is-draftkings">
+                <div class="what-is-draftkings-header">
+                    What is Draftkings Sportsbook?
+                </div>
+        
+                <div class="what-is-draftkings-content-box">
+                    <div>
+                        &#10004;
+                        Established, American-born company
+                    </div>
+        
+                    <div>
+                        &#10004;
+                        Advanced security makes it the safest sports betting platform
+                    </div>
+        
+                    <div>
+                        &#10004;
+                        Proven, industry-leading technology you can count on
+                    </div>
+        
+                    <div>
+                        &#10004;
+                        Quick and easy to withdraw your winnings
+                    </div>
+                </div>
+            </div>
+        
+            <div class="launch-section">
+                <div class="launch-section-header">
+                    DraftKings is Launching Sportsbook and Casino
+                </div>
+        
+                <div style="display: flex; gap: 100px;">
+                    <div class="launch-section-options">
+                        <div class="launch-section-card-header">
+                            <img src="./images/sportsbook-icon.png" alt="Logo">
+                        </div>
+                        <div class="launch-section-card-title">Sportsbook</div>
+                        <div class="launch-section-card-body">
+                            <ul>
+                                <li>Safe and secure online sports betting platform</li>
+                                <li>Thousands of ways to bet</li>
+                                <li>Quick and easy to withdraw your winnings</li>
+                            </ul>
+                        </div>
+                        <div class="launch-section-card-footer" onclick="alert('Play now (Sportsbook) pressed!')">Play Now</div>
+                    </div>
+            
+                    <div class="launch-section-options">
+                        <div class="launch-section-card-header">
+                            <img src="./images/casino-icon.png" alt="Logo">
+                        </div>
+                        <div class="launch-section-card-title">Casino</div>
+                        <div class="launch-section-card-body">
+                            <ul>
+                                <li>Over 300 games, including Casino classics and DraftKings exclusives</li>
+                                <li>Live Dealer games available</li>
+                                <li>Easy to jump in 24/7/365</li>
+                            </ul>
+                        </div>
+                        <div class="launch-section-card-footer" onclick="alert('Play now (Casino) pressed!')">Play Now</div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="get-app-section">
+                <div style="display: flex; gap: 100px;">
+                    <img src="./images/devices.png" width="400"/>
+                    
+                    <div style="margin-top: 80px;">
+                        <div style="font-weight: 600; font-size: 15px; margin-bottom: 5px;">
+                            Get sports betting at your fingertips, 24/7
+                        </div>
+                        <div style="font-size: 13px; margin-bottom: 20px;">
+                            Download the app
+                        </div>
+        
+                        <div>
+                            <img src="./images/app-store-download.png" width="100"/>
+                            <img src="./images/google-play-download.png" width="100"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="bottom-footer">
+                <div class="bottom-footer-section">
+                    <img src="images/usa-flag.png" width="30">
+                    <div style="padding-left: 10px;">
+                        This is a mockup of 2012-2024 DraftKings Inc.
+                    </div>
+                </div>
+                
+                <div class="bottom-footer-section">
+                    <img src="./images/ontario-igaming.png" width="100">
+                    <img src="./images/19plus.png" width="40" style="padding-left: 15px;">
+                    <img src="./images/rg.png" width="40" style="padding-left: 15px;">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
